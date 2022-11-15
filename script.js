@@ -18,8 +18,8 @@ function Task(Priority,id,Description,Date){
   let label = `<h4>${id}</h4>`;
   let content = `<p>${Description}</p>`;
   let dateLabel = `<time>${Date}</time>`;
-  let buttonDelete = `<button onclick="DeleteTask(TaskBook.${Priority}[${id}])">DELETE</button>`;
-  let buttonUpdate = `<button onclick="UpdateTask(TaskBook.${Priority}[${id}])">UPDATE</button>`;
+  let buttonDelete = `<button onclick="DeleteTask(TaskBook.${Priority},${id})">DELETE</button>`;
+  let buttonUpdate = `<button onclick="UpdateTask(TaskBook.${Priority},${id})">UPDATE</button>`;
   return `<div class="Task">${label}${content}${dateLabel}${buttonUpdate}${buttonDelete}</div>`
 }
 function NewTask(Priority,Description){
@@ -41,11 +41,15 @@ function ReadBoard(TasksList,Priority){
   }
   return  Tasks;
 }
-function DeleteTask(){
-
+function DeleteTask(Tasks,id){
+  let result = confirm("Eliminar Tarea") ? Tasks.splice(id,1) : console.log("Tarea No Eliminada") ;
+  // Tasks.splice(id,1);
+  ReadTasks();
 }
-function UpdateTask(){
-
+function UpdateTask(Tasks,id){
+  let NewDescription = prompt("Introduce nuevo text");
+  Tasks[id].Description = NewDescription;
+  ReadTasks();
 }
 
 NewTask("Low","Esto es un demo..");
@@ -55,5 +59,4 @@ NewTask("High","Esto es un demo..");
 NewTask("High","Esto es un demo..");
 NewTask("High","Esto es un demo..");
 NewTask("Medium","Esto es un demo..");
-console.log(TaskBook);
 ReadTasks();
