@@ -7,6 +7,10 @@
     <title>To Do List</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/0e8b404454.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
@@ -14,7 +18,25 @@
       <span class="Clock"></span>
     </header>
     <main>
-      <aside></aside>
+      <aside>
+        <button><i class="fas fa-plus-circle"></i></button>
+        <div class="form">
+          <label for="Priority">Nivel de Prioridad.</label>
+          <div>
+            <label for="High">High</label>
+            <input onchange="RadioButtonValue(this.value)" type="radio" name="Priority" id="High" value="High" />
+            <label for="Medium">Medium</label>
+            <input onchange="RadioButtonValue(this.value)" type="radio" name="Priority" id="Medium" value="Medium" />
+            <label for="Low">Low</label>
+            <input onchange="RadioButtonValue(this.value)" type="radio" name="Priority" id="Low" value="Low" />
+          </div>
+          <div>
+            <label for="Text">Descripcion de la nueva Tarea :</label>
+            <input type="text" placeholder="Mi nueva tarea" name="Text" id="NewDescription" />
+          </div>
+          <button onclick="GetTask()"><i class="fas fa-sticky-note"></i>  Agregar</button>
+        </div>
+      </aside>
       <section class="TaskBoard">
         <h2>DASHBOARD</h2>
         <article class="Low">

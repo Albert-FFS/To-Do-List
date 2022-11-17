@@ -7,6 +7,7 @@ let TaskBook = {
   "Medium":[],
   "High":[]
 };
+let PriorityValue = 'High';
 function GetTime() {
   let time = new Date();
   return `${time.getFullYear()}  ${time.getMonth()}  ${time.getDate()}  ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
@@ -18,8 +19,8 @@ function Task(Priority,id,Description,Date){
   let label = `<h4>${id}</h4>`;
   let content = `<p>${Description}</p>`;
   let dateLabel = `<time>${Date}</time>`;
-  let buttonDelete = `<button onclick="DeleteTask(TaskBook.${Priority},${id})">DELETE</button>`;
-  let buttonUpdate = `<button onclick="UpdateTask(TaskBook.${Priority},${id})">UPDATE</button>`;
+  let buttonDelete = `<button onclick="DeleteTask(TaskBook.${Priority},${id})"><i class="fas fa-trash-alt"></i></button>`;
+  let buttonUpdate = `<button onclick="UpdateTask(TaskBook.${Priority},${id})"><i class="fas fa-pencil-alt"></i></button>`;
   return `<div class="Task">${label}${content}${dateLabel}${buttonUpdate}${buttonDelete}</div>`
 }
 function NewTask(Priority,Description){
@@ -51,7 +52,15 @@ function UpdateTask(Tasks,id){
   Tasks[id].Description = NewDescription;
   ReadTasks();
 }
-
+function GetTask(){
+  let NewDescription = document.getElementById('NewDescription').value;
+  console.log(PriorityValue+"-"+NewDescription);
+  NewTask(PriorityValue.toString(),NewDescription.toString());
+  ReadTasks();
+}
+function RadioButtonValue(value){
+  PriorityValue = value;
+}
 NewTask("Low","Esto es un demo..");
 NewTask("Low","Esto es un demo..");
 NewTask("High","Esto es un demo..");

@@ -53,8 +53,27 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+main aside{
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  align-items: center;
+  width: 20vw;
+  padding: 20px 10px;
+  background: rgba(255, 255, 255, 0.5);
+}
+main aside .form{
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.3);
+}
+main aside .form input[type="checkbox"]{
+  background: #000;
+  width: 10px;
+  height: 10px;
 }
 main section {
   display: grid;
@@ -214,11 +233,19 @@ main section article div button:hover {
   -moz-transition: all ease .5s;
   -ms-transition: all ease .5s;
   -o-transition: all ease .5s;
+}
+main section article div button:hover i{
   color: #fff;
+  transition: all ease .5s;
 }
 main section article div button i {
   font-size: 1.5em;
-  color: #fff;
+  transition: all ease .5s;
+  color: #000;
+  -webkit-transition: all ease .5s;
+  -moz-transition: all ease .5s;
+  -ms-transition: all ease .5s;
+  -o-transition: all ease .5s;
 }
 main section article div button:nth-last-child(2) {
   background: #fff;
